@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 <div class="col-md-6">
-                    <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="img-fluid">
+                    <img src="{{ $project->cover_image }}" alt="{{ $project->title }}" class="img-fluid" width="250">
                 </div>
                 <div class="col-md-6 d-flex">
                     <a href="{{ route('admin.projects.index', $project) }}" class="btn btn-primary ms-2">Go to

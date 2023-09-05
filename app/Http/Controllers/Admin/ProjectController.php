@@ -22,7 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -30,7 +30,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $project = new Project();
+
+        $project->fill($data);
+
+        $project->save();
+
+        return to_route('admin.projects.show', $project)->with('type', 'success')->with('message', 'Project successfully inserted');
     }
 
     /**
@@ -64,6 +72,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return to_route('admin.projects.index')->with('type', 'succes')->with('message', 'Project successfully deleted');
+        return to_route('admin.projects.index')->with('type', 'success')->with('message', 'Project successfully deleted');
     }
 }
